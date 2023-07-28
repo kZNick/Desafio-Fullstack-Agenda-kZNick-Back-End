@@ -4,7 +4,7 @@ import { AppDataSource } from "./data-source";
 AppDataSource.initialize()
   .then(() => {
     console.log("Server is running");
-    app.listen(3000, () => {
+    app.listen(3001, () => {
       console.log("server running");
     });
   })
