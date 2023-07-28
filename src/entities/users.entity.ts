@@ -31,14 +31,16 @@ class User {
   @BeforeInsert()
   @BeforeUpdate()
   hashPasssword() {
-    const isEncripted = getRounds(this.password);
-
-    if (!isEncripted) {
-      this.password = hashSync(this.password, 10);
+    if (this.password) {
+      const isEncripted = getRounds(this.password);
+      
+      if (!isEncripted) {
+        this.password = hashSync(this.password, 10);
+      }
     }
   }
 
-  @OneToMany(() => Contact, (contact) => contact.user)
+  @OneToMany(() => Contact, contact => contact.user)
   contacts: Contact[];
 }
 

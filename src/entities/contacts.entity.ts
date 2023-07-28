@@ -9,10 +9,10 @@ class Contact {
   @Column({ type: "varchar", length: 45 })
   fullName: string;
 
-  @Column({ type: "varchar", length: 45, unique: true })
+  @Column({ type: "varchar", length: 45})
   email: string;
 
-  @Column({ type: "varchar", length: 20, unique: true })
+  @Column({ type: "varchar", length: 20})
   telefone: string;
 
   @CreateDateColumn({ type: "date" })
@@ -24,7 +24,7 @@ class Contact {
   @DeleteDateColumn({ type: "date", nullable: true })
   deletedAt?: string | Date | null | undefined;
 
-  @ManyToOne(() => User, (user) => user.contacts)
+  @ManyToOne(() => User, user => user.contacts)
   user: User;
 }
 
