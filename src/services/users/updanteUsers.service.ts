@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Not, Repository } from "typeorm";
 import {
   TUserUpdatetREquest,
   TUsersResponse,
@@ -6,6 +6,7 @@ import {
 import { User } from "../../entities";
 import { AppDataSource } from "../../data-source";
 import { userSchemaResponse } from "../../schema/user.schemas";
+import { appError } from "../../erros";
 
 const updateUserService = async (
   userData: TUserUpdatetREquest,
@@ -13,6 +14,29 @@ const updateUserService = async (
 ): Promise<TUsersResponse> => {
   
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
+
+  let userWithSameEmail;
+  if (userData.email !== undefined) {
+    userWithSameEmail = await userRepository.findOne({
+      where: { email: userData.email, id: Not(userId) },
+    });
+  }
+
+  if (userWithSameEmail) {
+    throw new appError("Email already exists", 409);
+  }
+
+  let userWithSameTelefone;
+  if (userData.telefone !== undefined) {
+    userWithSameTelefone = await userRepository.findOne({
+      where: { telefone: userData.telefone, id: Not(userId) },
+    });
+  }
+
+  if (userWithSameTelefone) {
+    throw new appError("telefone already exists", 409);
+  }
+
 
   const oldUserData: any | null = await userRepository.findOneBy({
     id: userId,

@@ -42,7 +42,7 @@ const updateContactService = async (
 
     if (emailAlreadyUsed) {
       throw new appError(
-        "Email is already associated with another contact.",
+        "Email already exists",
         409
       );
     }
@@ -59,7 +59,7 @@ const updateContactService = async (
 
     if (telefoneAlreadyUsed) {
       throw new appError(
-        "Phone is already associated with another contact.",
+        "telefone already exists",
         409
       );
     }
