@@ -2,9 +2,13 @@
   "name": "desafio-fullstack-agenda-kznick-back-end",
   "version": "1.0.0",
   "description": "Este desafio consiste em criar um pequeno cadastro de clientes com vínculo de contatos, depois mostrar o cliente e seus contatos vinculados.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "ts-node-dev --rs --cls --ignore-watch node_modules src/server.ts",
+    "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
+    "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
+    "build": "tsc -p .",
+    "start": "node ./dist/serve.js",
     "typeorm": "typeorm-ts-node-commonjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
