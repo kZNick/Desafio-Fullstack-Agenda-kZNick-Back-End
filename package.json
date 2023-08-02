@@ -8,7 +8,7 @@
     "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
     "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
     "build": "tsc -p .",
-    "start": "node index.js",
+    "start": "node server.js",
     "typeorm": "typeorm-ts-node-commonjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
