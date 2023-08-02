@@ -19,6 +19,9 @@ class User {
   @Column({ type: "varchar", length: 20, unique: true })
   telefone: string;
 
+  @Column({ type: "varchar", length: 500, nullable: true })
+  avatar: string | null;
+
   @CreateDateColumn({ type: "date" })
   createdAt: string | Date;
 

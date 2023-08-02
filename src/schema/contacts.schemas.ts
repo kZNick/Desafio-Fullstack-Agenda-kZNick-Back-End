@@ -8,11 +8,9 @@ const contactSchema = z.object({
   createdAt: z.date(),
   updatedAt: z.date(),
   user: z.number(),
-  deletedAt: z.date().nullable()
 });
 
 const contactSchemaRequest = contactSchema.omit({
-    deletedAt: true,
     createdAt: true,
     updatedAt: true,
     id: true,

@@ -3,6 +3,7 @@ import createUserService from "../services/users/createUsers.service";
 import allUsersService from "../services/users/readUsers.service";
 import updateUserService from "../services/users/updanteUsers.service";
 import deleteUserService from "../services/users/deleteUser.service";
+import allUserService from "../services/users/readUser.service";
 
 const createUserController = async (
   req: Request,
@@ -22,6 +23,16 @@ const allUsersController = async (
   const users = await allUsersService();
 
   return response.json(users);
+};
+
+const UserController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const userId = response.locals.user.id
+  const user = await allUserService(userId);
+  console.log("tuuu")
+  return response.json(user);
 };
 
 const userUpdateeController = async (
@@ -44,4 +55,4 @@ const userDeleteController = async (
   return response.status(204).send();
 };
 
-export { createUserController, allUsersController,userUpdateeController,userDeleteController };
+export { createUserController, allUsersController,userUpdateeController,userDeleteController,UserController };

@@ -5,6 +5,7 @@ const userSchema = z.object({
   fullName: z.string(),
   email: z.string().email(),
   telefone: z.string(),
+  avatar: z.string().nullable(),
   password: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -30,6 +31,7 @@ const createUserPatchSchema = z.object({
   email: z.string().email().optional(),
   telefone: z.string().optional(),
   password: z.string().optional(),
+  avatar: z.string().optional()
 });
 const userSchemaResponse = userSchema.omit({
   password: true,
