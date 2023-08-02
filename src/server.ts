@@ -4,7 +4,7 @@ import { AppDataSource } from "./data-source";
 AppDataSource.initialize()
   .then(() => {
     console.log("Server is running");
-    const PORT = process.env.PORT || 3000
+    const PORT = process.env.PORT || 3001
     app.listen(PORT, () => {
       console.log(`Server is running on ${PORT}`);
     });

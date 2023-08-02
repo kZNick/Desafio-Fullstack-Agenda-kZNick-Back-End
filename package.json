@@ -4,7 +4,7 @@
   "description": "Este desafio consiste em criar um pequeno cadastro de clientes com vínculo de contatos, depois mostrar o cliente e seus contatos vinculados.",
   "main": "server.js",
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc -p .",
     "start": "node src/server.js",
     "dev": "ts-node-dev --rs --cls --ignore-watch node_modules src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
