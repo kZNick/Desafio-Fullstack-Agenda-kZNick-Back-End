@@ -5,6 +5,8 @@
     "typeRoots": ["node_modules/@types"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "exactOptionalPropertyTypes": true,
     "skipLibCheck": true,
