@@ -17,11 +17,25 @@ Siga as etapas abaixo para executar o projeto localmente após cloná-lo do repo
 
 2. **Instalando dependências:**
 
-Navegue para o diretório do projeto e instale as dependências executando: npm install
+Navegue para o diretório do projeto e instale as dependências executando:
+
+Usando Yarn: yarn install
+
+Usando npm: npm install
+
 
 3. **Configurando o ambiente:**
 
 Renomeie o arquivo `.env.example` para `.env` e atualize as variáveis de ambiente conforme necessário.
+
+Antes de iniciar o servidor, você precisa rodar as migrations do TypeORM. Use os seguintes comandos, substituindo NomedaMigration pelo nome da migration que você deseja gerar: 
+
+yarn typeorm migration:generate -- -d src/data-source src/migrations/NomedaMigration
+yarn typeorm migration:run -- -d ./src/data-source
+
+Usando npm: npm run typeorm migration:generate -- -d src/data-source src/migrations/NomedaMigration
+npm run typeorm migration:run -- -d ./src/data-source
+
 
 
 4. **Executando o projeto:**
