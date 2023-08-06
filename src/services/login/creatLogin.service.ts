@@ -31,7 +31,6 @@ const createTokenService = async (
   }
 
   const userResponse: TUsersResponse = userSchemaResponse.parse(user);
-  console.log(userResponse)
 
   const token = jwt.sign(
     {

@@ -40,7 +40,11 @@ npm run typeorm migration:run -- -d ./src/data-source
 
 4. **Executando o projeto:**
 
-Após a compilação, execute o servidor usando: npm run dev
+Após a compilação e a execução das migrations, inicie o servidor usando:
+
+Usando Yarn: yarn dev
+
+Usando npm: npm run dev
 
 
 O servidor estará disponível em `http://localhost:3001`.

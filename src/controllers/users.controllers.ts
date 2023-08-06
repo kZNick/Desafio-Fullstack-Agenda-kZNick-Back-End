@@ -31,7 +31,6 @@ const UserController = async (
 ): Promise<Response> => {
   const userId = response.locals.user.id
   const user = await allUserService(userId);
-  console.log("tuuu")
   return response.json(user);
 };
 
